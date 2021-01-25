@@ -1,11 +1,12 @@
 <?php
 
 namespace App\Models;
-use App\Models\Kota;
-use App\Models\Desa;
+
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Kota;
+use App\Models\Desa;
 
 class Kecamatan extends Model
 {

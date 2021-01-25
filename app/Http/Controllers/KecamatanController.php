@@ -12,7 +12,7 @@ class KecamatanController extends Controller
     {
 
 
-        $kecamatan = Kota::with('kota')->get();
+        $kecamatan = Kecamatan::with('kota')->get();
         return view('admin.kecamatan.index',compact('kecamatan'));
     }
 
