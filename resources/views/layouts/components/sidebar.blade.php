@@ -31,7 +31,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="../admin/kecepatan">
+              <a class="nav-link" href="../admin/kecamatan">
                 
                 <span class="nav-link-text">Kecamatan</span>
               </a>

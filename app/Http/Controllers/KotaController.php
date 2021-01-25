@@ -3,83 +3,78 @@
 namespace App\Http\Controllers;
 
 use App\Models\Kota;
+use App\Models\Provinsi;
 use Illuminate\Http\Request;
 
 class KotaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function index()
     {
-        //
+
+
+        $kota = Kota::with('provinsi')->get();
+        return view('admin.kota.index',compact('kota'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+   
     public function create()
     {
-        //
+        $provinsi=Provinsi::all();
+        return view('admin.kota.create', compact('provinsi'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+    
     public function store(Request $request)
     {
-        //
+        $kota = new Kota();
+        $kota->id_provinsi =$request->id_provinsi;
+        $kota->kode_kota = $request->kode_kota;
+        $kota->nama_kota = $request->nama_kota;
+        $kota->save();
+        return redirect()->route('kota.index')
+        ->with(['succes'=>'Data <b> ', $kota->nama_kota,
+        '</b> berhasil di input']);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Kota $kota)
+   
+    public function show( $id)
     {
-        //
+        
+
+        $kota = Kota::findOrFail($id);
+        $provinsi=Provinsi::all();
+        return view ('admin.kota.show' , compact('kota' , 'provinsi'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Kota $kota)
+    
+    public function edit( $id)
     {
-        //
+
+        $kota = Kota::findOrfail($id);
+        $provinsi = Provinsi::all();
+        return view('admin.kota.edit',compact('provinsi' , 'kota'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Kota $kota)
+    
+    public function update(Request $request, $id)
     {
-        //
+        $kota = Kota::findOrfail($id);
+        $kota->id_provinsi = $request->id_provinsi;
+        $kota->kode_kota = $request->kode_kota;
+        $kota->nama_kota = $request->nama_kota;
+        $kota->save();
+        return redirect()->route('kota.index')
+        ->with(['succes'=>'Data <b> ', $kota->nama_kota,
+        '</b> berhasil di edit']);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Kota  $kota
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Kota $kota)
+    
+    public function destroy( $id)
     {
-        //
+        $data = Kota::findOrFail($id);
+        $data->delete();
+        return redirect()->route('kota.index')->with
+        (['message' =>'databerhasil dihapus']);;
     }
 }

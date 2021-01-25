@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Provinsi</div>
+                <div class="card-header">Show Kota</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -14,28 +14,34 @@
                         </div>
                     @endif
 
-                    <form action="{{route('provinsi.update' , $provinsi->id)}}" method="post">
-                        @csrf
-                        @method('PUT')
+
                         <div class = "row">
                             <div class="col-md-4">
-                                <label for="">Masukan Kode Provinsi</label>
+                                <label for="">pilih nama provinsi</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" value="{{$provinsi->kode_provinsi}}" name="kode_provinsi">
+                                <input type="text" value="{{$kota->provinsi->nama_provinsi}}" readonly name="id_provinsi">
                             </div>
                         </div>
                         <div class = "row">
                             <div class="col-md-4">
-                                <label for="">Masukan Nama Provinsi</label>
+                                <label for=""> Kode Kota</label>
                                 </div>
                                 <div class="col-md-8">
-                                    <input type="text" value="{{$provinsi->nama_provinsi}}" name="nama_provinsi">
+                                <input type="text" value="{{$kota->kode_kota}}" readonly name="kode_kota">
                             </div>
                         </div>
-                        <button class="btn-dark" type="submit">Simpan</button>
-                        <button class="btn-danger" type="reset">Reset</button>
-                    </form>
+                        <div class = "row">
+                            <div class="col-md-4">
+                                <label for="">Nama Kota</label>
+                                </div>
+                                <div class="col-md-8">
+                                <input type="text" value="{{$kota->nama_kota}}" readonly name="nama_kota">
+                        </div>
+                        <div class ='from-group'>
+                        <a href="{{ route('provinsi.index') }}" class='btn btn-danger'></a>
+                        </div>
+
 
                 </div>
             </div>

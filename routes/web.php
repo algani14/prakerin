@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProvinsiController;
+use App\Http\Controllers\KotaController;
+use App\Http\Controllers\KecamatanController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,7 +31,8 @@ Route::get('/',function() {
     return view('admin.index');
 });
 Route::resource('provinsi',ProvinsiController::class);
-
+Route::resource('kota',KotaController::class);
+Route::resource('kecamatan',KecamatanController::class);
 
 });
 

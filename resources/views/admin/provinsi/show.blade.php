@@ -28,7 +28,11 @@
                                 <div class="col-md-8">
                                 <input type="text" value="{{$provinsi->nama_provinsi}}" readonly name="nama_provinsi">
                         </div>
+
                     </div>
+                    <div class ='from-group'>
+                        <a href="{{ route('kota.index') }}" class='btn btn-danger'>Kembali</a>
+                        </div>
                 </div>
             </div>
         </div>

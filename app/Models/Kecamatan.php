@@ -17,5 +17,6 @@ class Kecamatan extends Model
     {
         return $this->hasMany('App\Models\Desa','id_kecamatan');
     }
+    
     use HasFactory;
 }
