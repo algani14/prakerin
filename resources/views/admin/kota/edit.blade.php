@@ -5,52 +5,32 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Provinsi</div>
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form action="{{route('kota.update' , $kota->id)}}" method="post">
+                    <form action=" {{ route('kota.update' ,$kota->id) }} " method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PATCH">
                         @csrf
-                        @method('PUT')
-                        <div class = "row">
-                            <div class="col-md-4">
-                                <label for="">pilih provinsi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <select name="id_provinsi" class="form-control">
-                                     @foreach ($provinsi as $data)
-                                    <option value="{{$data->id}}"
-                                        {{$data->id == $kota->id_provinsi ? 'selected' : ''}}>{{$data->nama_provinsi}}
-                                       </option>
+                            <div class="form-group">
+                                <label for="">Masukkan Kode Kota</label>
+                                <input type="number" class="form-control" value="{{ $kota->kode_kota }}" name="kode_kota" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Masukkan Nama Kota</label>
+                                <input type="text" class="form-control" value="{{ $kota->nama_kota }}" name="nama_kota" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="">Provinsi</label>
+                                <select class="form-control"  name="id_provinsi" id="">
+                                    @foreach ($provinsi as $item)
+                                        <option value=" {{$item->id}} "> {{$item->nama_provinsi}} </option>
                                     @endforeach
-                                    </select>
+                                </select>
                             </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary"  type="submit">Simpan</button>
                         </div>
-                        <div class = "row">
-                            <div class="col-md-4">
-                                <label for="">Masukan Kode Provinsi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" value="{{$kota->kode_kota}}" name="kode_kota">
-                            </div>
-                        </div>
-                        <div class = "row">
-                            <div class="col-md-4">
-                                <label for="">Masukan Nama Provinsi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" value="{{$kota->nama_kota}}" name="nama_kota">
-                            </div>
-                        </div>
-                        <button class="btn-dark" type="submit">Simpan</button>
-                        <button class="btn-danger" type="reset">Reset</button>
                     </form>
-
                 </div>
             </div>
         </div>

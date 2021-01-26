@@ -8,15 +8,16 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <form action=" {{ route('kecamatan.store') }} " method="POST" enctype="multipart/form-data">
+                    <form action=" {{ route('kecamatan.update' ,$kecamatan->id) }} " method="POST" enctype="multipart/form-data">
+                        <input type="hidden" name="_method" value="PATCH">
                         @csrf
                             <div class="form-group">
                                 <label for="">Masukkan Kode Kecamatan</label>
-                                <input type="number" class="form-control" name="kode_kecamatan" required>
+                                <input type="number" class="form-control" value="{{ $kecamatan->kode_kecamatan }}" name="kode_kecamatan" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Masukkan Nama Kecamatan</label>
-                                <input type="text" class="form-control" name="nama_kecamatan" required>
+                                <input type="text" class="form-control" value="{{ $kecamatan->nama_kecamatan }}" name="nama_kecamatan" required>
                             </div>
                             <div class="form-group">
                                 <label for="">Kota</label>

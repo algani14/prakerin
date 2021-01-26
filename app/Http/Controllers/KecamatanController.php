@@ -41,39 +41,38 @@ class KecamatanController extends Controller
     {
         
 
-        $kecamatan = Kota::findOrFail($id);
-        $provinsi=Provinsi::all();
-        return view ('admin.kota.show' , compact('kota' , 'provinsi'));
+        $kecamatan = Kecamatan::findOrFail($id);
+        $kota=Kota::all();
+        return view ('admin.kecamatan.show' , compact('kota' , 'kecamatan'));
     }
 
     
     public function edit( $id)
     {
 
-        $kecamatan = Kota::findOrfail($id);
-        $provinsi = Provinsi::all();
-        return view('admin.kota.edit',compact('provinsi' , 'kota'));
+        $kecamatan = Kecamatan::findOrFail($id);
+        $kota = Kota::all();
+        return view('admin.kecamatan.edit', compact('kecamatan', 'kota'));
+    
     }
 
     
     public function update(Request $request, $id)
     {
-        $kecamatan = Kota::findOrfail($id);
-        $kecamatan->id_provinsi = $request->id_provinsi;
-        $kecamatan->kode_kota = $request->kode_kota;
-        $kecamatan->nama_kota = $request->nama_kota;
+        $kecamatan = kecamatan::findOrFail($id);
+        $kecamatan->kode_kecamatan = $request->kode_kecamatan;
+        $kecamatan->nama_kecamatan = $request->nama_kecamatan;
+        $kecamatan->id_kota = $request->id_kota;
         $kecamatan->save();
-        return redirect()->route('kota.index')
-        ->with(['succes'=>'Data <b> ', $kecamatan->nama_kota,
-        '</b> berhasil di edit']);
+        return redirect()->route('kecamatan.index')->with(['message' => 'Data berhasil ditambah']);
     }
 
     
     public function destroy( $id)
     {
-        $data = Kota::findOrFail($id);
+        $data = Kecamatan::findOrFail($id);
         $data->delete();
-        return redirect()->route('kota.index')->with
+        return redirect()->route('kecamatan.index')->with
         (['message' =>'databerhasil dihapus']);;
     }
 }

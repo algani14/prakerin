@@ -8,17 +8,20 @@
                 <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    <form action=" {{ route('provinsi.store') }} " method="POST" enctype="multipart/form-data">
+                    <form action=" {{ route('rw.store') }} " method="POST" enctype="multipart/form-data">
                         @csrf
                             <div class="form-group">
-                                <label for="">Masukkan Kode Provinsi</label>
-                                <input type="number" class="form-control" name="kode_provinsi" required>
+                                <label for="">Masukkan Nama rw</label>
+                                <input type="text" class="form-control" name="nama_rw" required>
                             </div>
                             <div class="form-group">
-                                <label for="">Masukkan Nama Provinsi</label>
-                                <input type="text" class="form-control" name="nama_provinsi" required>
+                                <label for="">desa</label>
+                                <select class="form-control"  name="id_desa" id="">
+                                    @foreach ($desa as $item)
+                                        <option value=" {{$item->id}} "> {{$item->nama_desa}} </option>
+                                    @endforeach
+                                </select>
                             </div>
-                           
                         <div class="form-group">
                             <button class="btn btn-primary"  type="submit">Simpan</button>
                         </div>

@@ -13,7 +13,7 @@
           <!-- Nav items -->
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link active" href="index">
+              <a class="nav-link active" href="../admin">
                
                 <span class="nav-link-text">Dashboard</span>
               </a>

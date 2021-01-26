@@ -5,38 +5,25 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Edit Provinsi</div>
+                <div class="card-header">Dashboard</div>
 
                 <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    <form action="{{route('provinsi.update' , $provinsi->id)}}" method="post">
+                    <form action=" {{ route('provinsi.update', $provinsi->id) }} " method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class = "row">
-                            <div class="col-md-4">
-                                <label for="">Masukan Kode Provinsi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" value="{{$provinsi->kode_provinsi}}" name="kode_provinsi">
+                            <input type="hidden" name="" id="">
+                            <div class="form-group">
+                                <label for="">Masukkan Kode Provinsi</label>
+                                <input type="number" class="form-control" name="kode_provinsi" value="{{ $provinsi->kode_provinsi }}" required>
                             </div>
-                        </div>
-                        <div class = "row">
-                            <div class="col-md-4">
-                                <label for="">Masukan Nama Provinsi</label>
-                                </div>
-                                <div class="col-md-8">
-                                    <input type="text" value="{{$provinsi->nama_provinsi}}" name="nama_provinsi">
+                            <div class="form-group">
+                                <label for="">Masukkan Nama Provinsi</label>
+                                <input type="text" class="form-control" name="nama_provinsi" value="{{ $provinsi->nama_provinsi }}" required>
                             </div>
+                        <div class="form-group">
+                            <button class="btn btn-primary"  type="submit">Simpan</button>
                         </div>
-                        <button class="btn-dark" type="submit">Simpan</button>
-                        <button class="btn-danger" type="reset">Reset</button>
                     </form>
-
                 </div>
             </div>
         </div>

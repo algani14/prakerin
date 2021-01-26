@@ -5,20 +5,20 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        Tambah Data Provinsi
+                        Show Data desa
                     </div>
                     <div class="card-body">
                             @csrf
                             <div class="form-group">
-                                <label for="">Kode Provinsi</label>
-                                <input type="text" name="kode_provinsi" value="{{$provinsi->kode_provinsi}}" class="form-control" readonly>
+                                <label for="">kecamatan</label>
+                                <input type="text" name="id_kecamatan" value="{{$desa->kecamatan->nama_kecamatan}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="">Nama Provinsi</label>
-                                <input type="text" name="nama_provinsi" value="{{$provinsi->nama_provinsi}}" class="form-control" readonly>
+                                <label for="">Nama desa</label>
+                                <input type="text" name="nama_desa" value="{{$desa->nama_desa}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
-                                <a href=" {{ route('provinsi.index') }} " class="btn btn-danger">Back</a>
+                                <a href=" {{ route('desa.index') }} " class="btn btn-danger">Back</a>
                             </div>
                     </div>
                 </div>

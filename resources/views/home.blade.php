@@ -14,7 +14,7 @@
                         </div>
                     @endif
 
-                    {{ __('home!') }}
+                    {{ __('Alberrt!') }}
                 </div>
             </div>
         </div>
