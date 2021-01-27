@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow mb-4">
+            @include('flash-message')
                     <div class="card-header py-3">
                     <h10 class="m-0 font-weight-bold text-primary">
                         Data Kota
@@ -41,7 +42,7 @@
                                                     <a class="btn btn-success" href=" {{route('kota.edit', $item->id)}} ">
                                                         Edit
                                                     </a> 
-                                                    <a class="btn btn-primary" href=" {{route('kota.show', $item->id)}} ">
+                                                    <a class="btn btn-info" href=" {{route('kota.show', $item->id)}} ">
                                                         Show
                                                     </a> 
                                                     <button type="submit" class="btn btn-danger">Delete</button>

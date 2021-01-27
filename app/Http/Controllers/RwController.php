@@ -30,7 +30,7 @@ class RwController extends Controller
         $rw->nama_rw = $request->nama_rw;
         $rw->id_desa = $request->id_desa;
         $rw->save();
-        return redirect()->route('rw.index')->with(['message' => 'Data berhasil ditambah']);
+        return redirect()->route('rw.index')->with(['success' => 'Data berhasil ditambah']);
     }
 
    
@@ -56,7 +56,7 @@ class RwController extends Controller
         $rw->nama_rw = $request->nama_rw;
         $rw->id_desa = $request->id_desa;
         $rw->save();
-        return redirect()->route('rw.index')->with(['message' => 'Data berhasil ditambah']);
+        return redirect()->route('rw.index')->with(['info' => 'Data berhasil di edit']);
     }
 
    
@@ -64,6 +64,6 @@ class RwController extends Controller
     {
         $rw = Rw::findOrFail($id);
         $rw->delete();
-        return \redirect()->route('rw.index', \compact('rw'));
+        return redirect()->route('rw.index')->with(['error' => 'Data berhasil di hapus!']);
     }
 }

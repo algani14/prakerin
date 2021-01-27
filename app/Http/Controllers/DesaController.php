@@ -31,7 +31,7 @@ class DesaController extends Controller
         $desa->nama_desa = $request->nama_desa;
         $desa->id_kecamatan = $request->id_kecamatan;
         $desa->save();
-        return redirect()->route('desa.index')->with(['message' => 'Data berhasil ditambah']);
+        return redirect()->route('desa.index')->with(['success' => 'Data berhasil di input!']);
     }
 
    
@@ -57,7 +57,7 @@ class DesaController extends Controller
         $desa->nama_desa = $request->nama_desa;
         $desa->id_kecamatan = $request->id_kecamatan;
         $desa->save();
-        return redirect()->route('desa.index')->with(['message' => 'Data berhasil ditambah']);
+        return redirect()->route('desa.index')->with(['info' => 'Data berhasil di edit!']);
     }
 
    
@@ -65,6 +65,6 @@ class DesaController extends Controller
     {
         $desa = Desa::findOrFail($id);
         $desa->delete();
-        return \redirect()->route('desa.index', \compact('desa'));
+        return redirect()->route('desa.index')->with(['error' => 'Data berhasil di hapus!']);
     }
 }

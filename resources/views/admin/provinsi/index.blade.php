@@ -1,10 +1,11 @@
 @extends('layouts.master')
-
 @section('konten')
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card shadow mb-4">
+            @include('flash-message')
                     <div class="card-header py-3">
                     <h10 class="m-0 font-weight-bold text-primary">
                         Data Provinsi
@@ -12,6 +13,7 @@
                     </h10>
                 </div>
                 <div class="card-body">
+                
                     <div class="table-responsive">
                         <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                             <thead>
@@ -39,7 +41,7 @@
                                                     <a class="btn btn-success" href=" {{route('provinsi.edit', $item->id)}} ">
                                                         Edit
                                                     </a>
-                                                    <a class="btn btn-primary" href=" {{route('provinsi.show', $item->id)}} ">
+                                                    <a class="btn btn-info" href=" {{route('provinsi.show', $item->id)}} ">
                                                         Show
                                                     </a> 
                                                     <button type="submit" class="btn btn-danger">Delete</button>
