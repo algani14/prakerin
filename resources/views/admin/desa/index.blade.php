@@ -37,14 +37,15 @@
                                                 <form action="{{ route('desa.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('Delete')
-                                                    <a class="btn btn-success" href=" {{route('desa.edit', $item->id)}} ">
-                                                        Edit
+                                                    <a class="btn btn-outline-success btn-sm" href=" {{route('desa.edit', $item->id)}} "><i class="fa fa-eye"></a></i>
+                                                        
                                                     </a>
-                                                    <a class="btn btn-info" href=" {{route('desa.show', $item->id)}} ">
-                                                        Show
+                                                    <a  class="btn btn-outline-info btn-sm" href=" {{route('desa.show', $item->id)}} "><i class="fa fa-edit"></a></i>
+                                                        
                                                     </a> 
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"></a></i></button>
                                                 </form>
+                                                
                                             </center>
                                         </td>
                                     </tr>

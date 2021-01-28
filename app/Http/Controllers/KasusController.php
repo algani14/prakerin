@@ -40,6 +40,7 @@ class KasusController extends Controller
      */
     public function store(Request $request)
     {
+
         $kasus = new Kasus;
         $kasus->positif = $request->positif;
         $kasus->sembuh = $request->sembuh;
@@ -73,7 +74,8 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $rw = Rw::all();
-        return view('admin.kasus.edit', compact('kasus', 'rw'));
+        $selected = $kasus->rw->pluck('id')->toArray();
+        return view('admin.kasus.edit', compact('kasus', 'rw' , 'selected'));
     }
 
     /**

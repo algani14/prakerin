@@ -1,43 +1,31 @@
 @extends('layouts.master')
 
 @section('konten')
+
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header">Dashboard</div>
-
-                <div class="card-body">
-                    <form action=" {{ route('kasus.store') }} " method="POST" enctype="multipart/form-data">
-                        @csrf
+                <div class="card-header">{{ __('Data Tracking') }}</div>
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                            <form action="{{route('kasus.store')}}" class="form-horizontal m-t-30" method="post">
+                            @csrf
+                            @livewireScripts
+                            @livewire('livewire')
+                            @livewireStyles
                             <div class="form-group">
-                                <label for="">Positif</label>
-                                <input type="text" class="form-control" name="positif" required>
+                            <button type="submit" class="float-right btn btn-outline-primary">Simpan</button>
                             </div>
-                            <div class="form-group">
-                                <label for="">Sembuh</label>
-                                <input type="text" class="form-control" name="sembuh" required>
+                            </form>
                             </div>
-                            <div class="form-group">
-                                <label for="">Meninggal</label>
-                                <input type="text" class="form-control" name="meninggal" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="">Rw</label>
-                                <select class="form-control"  name="id_rw" id="">
-                                    @foreach ($rw as $item)
-                                        <option value=" {{$item->id}} "> {{$item->nama_rw}} </option>
-                                    @endforeach
-                                </select>
-                            </div>
-                        <div class="form-group">
-                            <button class="btn btn-primary"  type="submit">Simpan</button>
                         </div>
-                    </form>
+                    </div>
+                </div>
+            </div>
+                
                 </div>
             </div>
         </div>

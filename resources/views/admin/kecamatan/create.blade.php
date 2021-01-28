@@ -13,10 +13,16 @@
                             <div class="form-group">
                                 <label for="">Masukkan Kode Kecamatan</label>
                                 <input type="number" class="form-control" name="kode_kecamatan" required>
+                                @if ($errors->has('kode_kecamatan'))
+                                <span class="text-danger">{{ $errors->first('kode_kecamatan') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Masukkan Nama Kecamatan</label>
                                 <input type="text" class="form-control" name="nama_kecamatan" required>
+                                @if ($errors->has('nama_kecamatan'))
+                                <span class="text-danger">{{ $errors->first('nama_kecamatan') }}</span>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="">Kota</label>

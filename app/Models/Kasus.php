@@ -8,9 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Kasus extends Model
 {
-    public function Rw()
+    protected $table = "kasuses";
+    protected $fillable = ['id', 'positif', 'negatif', 'sembuh', 'meninggal', 'tanggal', 'id_rw'];
+    public $timestamps = true;
+
+    public function rw()
     {
-        return $this->belongsTo('App\Models\Rw','id_rw');
+        return $this->belongsTo('App\Models\Rw', 'id_rw');
     }
     use HasFactory;
 }

@@ -39,13 +39,13 @@
                                                 <form action="{{ route('kecamatan.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('Delete')
-                                                    <a class="btn btn-success" href=" {{route('kecamatan.edit', $item->id)}} ">
-                                                        Edit
+                                                    <a class="btn btn-outline-success btn-sm" href=" {{route('kecamatan.edit', $item->id)}} "><i class="fa fa-eye"></a></i>
+                                                        
                                                     </a>
-                                                    <a class="btn btn-info" href=" {{route('kecamatan.show', $item->id)}} ">
-                                                        Show
-                                                    </a>  
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <a  class="btn btn-outline-info btn-sm" href=" {{route('kecamatan.show', $item->id)}} "><i class="fa fa-edit"></a></i>
+                                                        
+                                                    </a> 
+                                                    <button type="submit"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"></a></i></button>
                                                 </form>
                                             </center>
                                         </td>

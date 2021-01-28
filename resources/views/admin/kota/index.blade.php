@@ -39,13 +39,13 @@
                                                 <form action="{{ route('kota.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('Delete')
-                                                    <a class="btn btn-success" href=" {{route('kota.edit', $item->id)}} ">
-                                                        Edit
+                                                    <a class="btn btn-outline-success btn-sm" href=" {{route('kota.edit', $item->id)}} "><i class="fa fa-eye"></a></i>
+                                                        
+                                                    </a>
+                                                    <a  class="btn btn-outline-info btn-sm" href=" {{route('kota.show', $item->id)}} "><i class="fa fa-edit"></a></i>
+                                                        
                                                     </a> 
-                                                    <a class="btn btn-info" href=" {{route('kota.show', $item->id)}} ">
-                                                        Show
-                                                    </a> 
-                                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                                    <button type="submit"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"></a></i></button>
                                                 </form>
                                             </center>
                                         </td>
