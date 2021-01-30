@@ -52,6 +52,7 @@ class KasusController extends Controller
     {
 
         $kasus = new Kasus;
+        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->sembuh = $request->sembuh;
         $kasus->meninggal = $request->meninggal;
@@ -102,6 +103,7 @@ class KasusController extends Controller
     public function update(Request $request, $id)
     {
         $kasus = Kasus::findOrFail($id);
+        $kasus->reaktif = $request->reaktif;
         $kasus->positif = $request->positif;
         $kasus->sembuh = $request->sembuh;
         $kasus->meninggal = $request->meninggal;

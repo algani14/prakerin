@@ -30,18 +30,10 @@ class Livewire extends Component
     {
         $this->provinsi = Provinsi::all();
               
-        $this->kota = Kota::whereHas('provinsi', function ($query) {
-            $query->whereId(request()->input('id_provinsi', 0));
-        })->pluck('nama_kota', 'id');
-        $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
-            $query->whereId(request()->input('id_kota', 0));
-        })->pluck('nama_kecamatan', 'id');
-        $this->desa = Desa::whereHas('kecamatan', function ($query) {
-            $query->whereId(request()->input('id_kecamatan', 0));
-        })->pluck('nama_desa', 'id');
-        $this->rw = Rw::whereHas('desa', function ($query) {
-            $query->whereId(request()->input('id_desa', 0));
-        })->pluck('nama_rw', 'id');
+        $this->kota = collect();
+        $this->kecamatan = collect();
+        $this->desa =collect();
+        $this->rw = collect();
         $this->selectedRw = $selectedRw;
         $this->idt = $idt;
         if (!is_null($idt)) {
@@ -72,31 +64,21 @@ class Livewire extends Component
     public function updatedSelectedProvinsi($provinsi)
     {
         $this->kota = Kota::where('id_provinsi', $provinsi)->get();
-        $this->selectedKota = NULL;
-        $this->selectedKecamatan = NULL;
-        $this->selectedDesa = NULL;
-        $this->selectedRw = NULL;
+    
     }
     public function updatedSelectedKota($kota)
     {
         $this->kecamatan = Kecamatan::where('id_kota', $kota)->get();
-        $this->selectedKecamatan = NULL;
-        $this->selectedDesa = NULL;
-        $this->selectedRw = NULL;
     }
 
     public function updatedSelectedKecamatan($kecamatan)
     {
         $this->desa = Desa::where('id_kecamatan', $kecamatan)->get();
-        $this->selectedDesa = NULL;
-        $this->selectedRw = NULL;
     }
     public function updatedSelectedDesa($desa)
     {
-        if (!is_null($desa)) {
-            $this->rw = RW::where('id_desa', $desa)->get();
-        }else{
-            $this->selectedRw = NULL;
-        }
+
+        $this->rw = RW::where('id_desa', $desa)->get();
+        
     }
 }

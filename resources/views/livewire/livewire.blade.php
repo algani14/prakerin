@@ -10,10 +10,10 @@
             </select>
         </div>
         <div class="col-md-6">
-        <label for="positif">Jumlah Positif</label>
-        <input type="text" value="@if(isset($kasus1)){{$kasus1->positif}}@endif" class="form-control" name="positif" required>
+             <label for="reaktif">Reaktif</label>
+            <input type="text" value="@if(isset($kasus1)){{$kasus1->reaktif}}@endif" class="form-control" name="reaktif" required>
         </div>
-    </div> 
+        </div> 
 
         <div class="form-group row ">
             <div class="col-md-6">
@@ -28,8 +28,8 @@
    
             </div>
             <div class="col-md-6">
-                <label for="sembuh">Jumlah Sembuh</label>
-                <input type="text" class="form-control" value="@if(isset($kasus1)){{$kasus1->sembuh}}@endif"  name="sembuh" required>
+                <label for="Positif">Positif</label>
+                <input type="text" class="form-control" value="@if(isset($kasus1)){{$kasus1->positif}}@endif"  name="positif" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -45,8 +45,8 @@
    
             </div>
             <div class="col-md-6">
-                <label for="meninggal">Jumlah Meninggal</label>
-                <input type="text" class="form-control" value="@if(isset($kasus1)){{$kasus1->meninggal}}@endif" name="meninggal" required>
+                <label for="sembuh">Sembuh</label>
+                <input type="text" class="form-control" value="@if(isset($kasus1)){{$kasus1->sembuh}}@endif" name="sembuh" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -59,12 +59,10 @@
                         <option value="{{ $desas->id }}">{{ $desas->nama_desa }}</option>
                     @endforeach
                 </select>
-   
             </div>
             <div class="col-md-6">
-                <label for="tanggal">Tanggal</label>
-                <input type="date" class="form-control" value="@if(isset($kasus1)){{$kasus1->tanggal}}@endif"
-                 name="tanggal" required>
+                <label for="meninggal">Meninggal</label>
+                <input type="text" class="form-control" value="@if(isset($kasus1)){{$kasus1->meninggal}}@endif" name="meninggal" required>
             </div>
         </div>
         <div class="form-group row ">
@@ -77,7 +75,11 @@
                         <option value="{{ $rws->id }}">{{ $rws->nama_rw }}</option>
                     @endforeach
                 </select>
-    
+            </div>
+            <div class="col-md-6">
+                <label for="tanggal">Tanggal</label>
+                <input type="date" class="form-control" value="@if(isset($kasus1)){{$kasus1->tanggal}}@endif"
+                 name="tanggal" required>
             </div>
         </div>
 </div>
