@@ -38,10 +38,10 @@
                                             <form action="{{ route('provinsi.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('Delete')
-                                                    <a class="btn btn-outline-success btn-sm" href=" {{route('provinsi.edit', $item->id)}} "><i class="fa fa-eye"></a></i>
+                                                    <a class="btn btn-outline-info btn-sm" href=" {{route('provinsi.edit', $item->id)}} "><i class="fa fa-edit"></a></i>
                                                         
                                                     </a>
-                                                    <a  class="btn btn-outline-info btn-sm" href=" {{route('provinsi.show', $item->id)}} "><i class="fa fa-edit"></a></i>
+                                                    <a  class="btn btn-outline-success btn-sm" href=" {{route('provinsi.show', $item->id)}} "><i class="fa fa-eye"></a></i>
                                                         
                                                     </a> 
                                                     <button type="submit"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"></a></i></button>

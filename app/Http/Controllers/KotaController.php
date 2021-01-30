@@ -4,10 +4,15 @@ namespace App\Http\Controllers;
 
 use App\Models\Kota;
 use App\Models\Provinsi;
+use App\Http\Controllers\DB;
 use Illuminate\Http\Request;
 
 class KotaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
     public function index()
     {

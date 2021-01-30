@@ -19,7 +19,7 @@
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Kecamatan</th>
-                                    <th>Kode Kecamatan</th>
+                                    
                                     <th>Kota</th>
                                     <th>Aksi</th>
                                 </tr>
@@ -32,17 +32,16 @@
                                     <tr>
                                         <td>{{$no++}}</td>
                                         <td> {{$item->nama_kecamatan}} </td>
-                                        <td> {{$item->kode_kecamatan}} </td>
                                         <td> {{$item->kota->nama_kota}} </td>
                                         <td>
                                             <center>
                                                 <form action="{{ route('kecamatan.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('Delete')
-                                                    <a class="btn btn-outline-success btn-sm" href=" {{route('kecamatan.edit', $item->id)}} "><i class="fa fa-eye"></a></i>
+                                                    <a class="btn btn-outline-info btn-sm" href=" {{route('kecamatan.edit', $item->id)}} "><i class="fa fa-edit"></a></i>
                                                         
                                                     </a>
-                                                    <a  class="btn btn-outline-info btn-sm" href=" {{route('kecamatan.show', $item->id)}} "><i class="fa fa-edit"></a></i>
+                                                    <a  class="btn btn-outline-success btn-sm" href=" {{route('kecamatan.show', $item->id)}} "><i class="fa fa-eye"></a></i>
                                                         
                                                     </a> 
                                                     <button type="submit"  class="btn btn-outline-danger btn-sm"><i class="fa fa-trash-alt"></a></i></button>

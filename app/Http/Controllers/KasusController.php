@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Kasus;
 use App\Models\Rw;
+use App\Models\Kecamatan;
+use App\Models\Desa;
+use App\Models\Provinsi;
+use App\Models\Kota;
 use Illuminate\Http\Request;
 
 class KasusController extends Controller
@@ -13,6 +17,12 @@ class KasusController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $kasus = Kasus::all();
@@ -61,7 +71,11 @@ class KasusController extends Controller
     {
         $kasus = Kasus::findOrFail($id);
         $rw=Rw::all();
-        return view ('admin.kasus.show' , compact('kasus' , 'rw'));
+        $kota=Kota::all();
+        $provinsi=Provinsi::all();
+        $kecamatan=Kecamatan::all();
+        $desa=Desa::all();
+        return view ('admin.kasus.show' , compact('kasus' , 'rw' , 'kota' , 'provinsi' , 'kecamatan' , 'desa'));
     }
 
     /**

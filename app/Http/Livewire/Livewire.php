@@ -7,6 +7,7 @@ use App\Models\Desa;
 use App\Models\Kecamatan;
 use App\Models\Kota;
 use App\Models\Provinsi;
+use App\Models\Kasus;
 use Livewire\Component;
 
 class Livewire extends Component
@@ -16,6 +17,8 @@ class Livewire extends Component
     public $kecamatan;
     public $desa;
     public $rw;
+    public $kasus1;
+    public $idt;
 
     public $selectedProvinsi = null;
     public $selectedKota = null;
@@ -23,10 +26,13 @@ class Livewire extends Component
     public $selectedDesa = null;
     public $selectedRw = null;
 
-    public function mount($selectedRw = null)
+    public function mount($selectedRw = null, $idt = null)
     {
         $this->provinsi = Provinsi::all();
-        $this->kota = Kota::with('provinsi')->get();
+              
+        $this->kota = Kota::whereHas('provinsi', function ($query) {
+            $query->whereId(request()->input('id_provinsi', 0));
+        })->pluck('nama_kota', 'id');
         $this->kecamatan = Kecamatan::whereHas('kota', function ($query) {
             $query->whereId(request()->input('id_kota', 0));
         })->pluck('nama_kecamatan', 'id');
@@ -37,11 +43,16 @@ class Livewire extends Component
             $query->whereId(request()->input('id_desa', 0));
         })->pluck('nama_rw', 'id');
         $this->selectedRw = $selectedRw;
+        $this->idt = $idt;
+        if (!is_null($idt)) {
+            $this->kasus1 = Kasus::findOrFail($idt);
+        }
 
         if (!is_null($selectedRw)) {
             $rw = Rw::with('desa.kecamatan.kota.provinsi')->find($selectedRw);
+            
             if ($rw) {
-                $this->rw = Rw::where('id_desa', $rw->id_desa)->get();
+                $this->rw = RW::where('id_desa', $rw->id_desa)->get();
                 $this->desa = Desa::where('id_kecamatan', $rw->desa->id_kecamatan)->get();
                 $this->kecamatan = Kecamatan::where('id_kota', $rw->desa->kecamatan->id_kota)->get();
                 $this->kota = Kota::where('id_provinsi', $rw->desa->kecamatan->kota->id_provinsi)->get();
@@ -83,10 +94,9 @@ class Livewire extends Component
     public function updatedSelectedDesa($desa)
     {
         if (!is_null($desa)) {
-            $this->rw = Rw::where('id_desa', $desa)->get();
+            $this->rw = RW::where('id_desa', $desa)->get();
         }else{
             $this->selectedRw = NULL;
         }
     }
-
 }
