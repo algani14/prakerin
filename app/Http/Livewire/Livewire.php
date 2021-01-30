@@ -64,21 +64,32 @@ class Livewire extends Component
     public function updatedSelectedProvinsi($provinsi)
     {
         $this->kota = Kota::where('id_provinsi', $provinsi)->get();
-    
+        $this->selectedKota = NULL;
+        $this->selectedKecamatan = NULL;
+        $this->selectedDesa = NULL;
+        $this->selectedRw = NULL;
     }
     public function updatedSelectedKota($kota)
     {
         $this->kecamatan = Kecamatan::where('id_kota', $kota)->get();
+        $this->selectedKecamatan = NULL;
+        $this->selectedDesa = NULL;
+        $this->selectedRw = NULL;
+        
     }
 
     public function updatedSelectedKecamatan($kecamatan)
     {
         $this->desa = Desa::where('id_kecamatan', $kecamatan)->get();
+        $this->selectedDesa = NULL;
+        $this->selectedRw = NULL;
     }
     public function updatedSelectedDesa($desa)
     {
-
-        $this->rw = RW::where('id_desa', $desa)->get();
-        
+        if (!is_null($desa)) {
+            $this->rw = RW::where('id_desa', $desa)->get();
+        }else{
+            $this->selectedRw = NULL;
+        }
     }
 }
