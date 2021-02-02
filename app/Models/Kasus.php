@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class Kasus extends Model
 {
     protected $table = "kasuses";
-    protected $fillable = ['id', 'positif', 'negatif', 'sembuh', 'meninggal', 'tanggal', 'id_rw'];
+    protected $fillable = ['id', 'positif',  'sembuh', 'meninggal', 'tanggal', 'id_rw'];
     public $timestamps = true;
 
     public function rw()
