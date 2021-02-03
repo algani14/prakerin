@@ -17,6 +17,7 @@ class ApiController extends Controller
     {
         $provinsi = DB::table('provinsis')
           ->select('provinsis.nama_provinsi','provinsis.kode_provinsi',
+          DB::raw('SUM(kasuses.reaktif) as Reaktif'),
           DB::raw('SUM(kasuses.positif) as Positif'),
           DB::raw('SUM(kasuses.sembuh) as Sembuh'),
           DB::raw('SUM(kasuses.meninggal) as Meninggal'))
@@ -27,13 +28,31 @@ class ApiController extends Controller
               ->join('kasuses','rws.id','=','kasuses.id_rw')
           ->groupBy('provinsis.id')->get();
        
-          return response([
-              'success' => true,
-              'data' => ['Hari Ini' => $provinsi,
-                      ],       
-              'message' => 'Berhasil'
-          ], 200);
+          $positif = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.positif');
+            $reaktif = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.reaktif');
+            $sembuh = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.sembuh');
+            $meninggal = DB::table('rws')->select('kasuses.positif','kasuses.reaktif'.'kasuses.sembuh','kasuses.meninggal')->join('kasuses','rws.id','=','kasuses.id_rw')->sum('kasuses.meninggal');
+        // dd($provinsi);
+        return response([
+            'success' => true,
+            'data' => [
+                        'Hari Ini' => $provinsi
+                        ],
+            'Total' =>[
+                        'Jumlah Reaktif' => $reaktif,
+                        'Jumlah Positif' => $positif,
+                        'Jumlah Sembuh' => $sembuh,
+                        'Jumlah Meninggal' => $meninggal,
+                    ],
+        ]);
+
     }
+
+    public function provinsixkota(Type $var = null)
+    {
+      
+    }
+
 
     public function positif()
     {
