@@ -29,6 +29,11 @@ Route::delete('/posts/{id?}', [PostsController::class,'destroy']);
 Route::get('/provinsi',[ApiController::class, 'provinsi']);
 Route::get('/provinsi/{id}', [ApiController::class,'provinsixkota']);
 
+Route::get('/positif', [ApiController::class,'positif']);
+Route::get('/sembuh', [ApiController::class,'sembuh']);
+Route::get('/meninggal', [ApiController::class,'meninggal']);
+Route::get('/indonesia', [ApiController::class,'indonesia']);
+
 
 
 
