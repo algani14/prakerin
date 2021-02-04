@@ -26,8 +26,23 @@ Route::get('/posts/{id}', [PostsController::class,'show']);
 Route::put('/posts/update/{id}', [PostsController::class,'update']);
 Route::delete('/posts/{id?}', [PostsController::class,'destroy']);
 
+// kawal corona
+
 Route::get('/provinsi',[ApiController::class, 'provinsi']);
-Route::get('/provinsi/{id}', [ApiController::class,'provinsixkota']);
+Route::get('/provinsi/{id}', [ApiController::class,'provinsishow']);
+
+Route::get('/kota', [ApiController::class,'kota']);
+Route::get('/kota/{id}', [ApiController::class,'kotashow']);
+
+Route::get('/kecamatan', [ApiController::class,'kecamatan']);
+Route::get('/kecamatan/{id}', [ApiController::class,'kecamatanshow']);
+
+Route::get('/desa', [ApiController::class,'desa']);
+Route::get('/desa/{id}', [ApiController::class,'desashow']);
+
+Route::get('/rw', [ApiController::class,'rw']);
+Route::get('/rw/{id}', [ApiController::class,'rwshow']);
+
 
 Route::get('/positif', [ApiController::class,'positif']);
 Route::get('/sembuh', [ApiController::class,'sembuh']);

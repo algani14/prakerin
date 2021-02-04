@@ -14,10 +14,6 @@
                                 <input type="text" name="id_kota" value="{{$kecamatan->kota->nama_kota}}" class="form-control" readonly>
                             </div>
                             <div class="form-group">
-                                <label for="">Kode kecamatan</label>
-                                <input type="text" name="kode_kecamatan" value="{{$kecamatan->kode_kecamatan}}" class="form-control" readonly>
-                            </div>
-                            <div class="form-group">
                                 <label for="">Nama kecamatan</label>
                                 <input type="text" name="nama_kecamatan" value="{{$kecamatan->nama_kecamatan}}" class="form-control" readonly>
                             </div>
