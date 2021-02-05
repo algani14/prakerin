@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\API;
-
+use Illuminate\Support\Facades\Http;
 use App\Models\Provinsi;
 use App\Models\Kota;
 use App\Models\Kasus;
@@ -10,8 +10,34 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use DB;
 use Carbon\Carbon;
+use GuzzleHttp\Client;
+
+
 class ApiController extends Controller
 {
+    public $data = [];
+    public function global()
+    {
+        
+        $response = Http::get( 'https://api.kawalcorona.com/global/' )->json();
+        foreach ($response as $data => $val){
+            $raw =$val['attributes'];
+            $res = [
+                'Negara' => $raw['Country_Region'],
+                'Positif' => $raw ['Confirmed'],
+                'Sembuh' => $raw ['Recovered'],
+                'meninggal' => $raw ['Deaths']
+            ];
+            array_push($this->data, $res);
+         }
+            $data = [
+                'success' => true,
+                'data' => $this->data,
+                'message' => 'berhasil'
+            ];
+            return response()->json($data,200);
+
+    }
     
     public function provinsi()
     {
@@ -54,14 +80,9 @@ class ApiController extends Controller
             'success' => true,
             'data' => [
                         'Hari Ini' => $toDay,
-                        'Semua' => $allDay
+                        'Semua' => $allDay,
                         ],
-            'Total' =>[
-                        'Jumlah Reaktif' => $reaktif,
-                        'Jumlah Positif' => $positif,
-                        'Jumlah Sembuh' => $sembuh,
-                        'Jumlah Meninggal' => $meninggal,
-                    ],
+            'message' => 'berhasil'
         ]);
 
     }
@@ -132,12 +153,7 @@ class ApiController extends Controller
                         'Semua' => $allDay
 
                         ],
-            'Total' =>[
-                        'Jumlah Reaktif' => $reaktif,
-                        'Jumlah Positif' => $positif,
-                        'Jumlah Sembuh' => $sembuh,
-                        'Jumlah Meninggal' => $meninggal,
-                    ],
+            'message' => 'berhasil'
         ]);
 
     }
@@ -204,12 +220,7 @@ class ApiController extends Controller
                         'Hari Ini' => $toDay,
                         'Semua' =>$allDay
                         ],
-            'Total' =>[
-                        'Jumlah Reaktif' => $reaktif,
-                        'Jumlah Positif' => $positif,
-                        'Jumlah Sembuh' => $sembuh,
-                        'Jumlah Meninggal' => $meninggal,
-                    ],
+            'message' => 'berhasil'
         ]);
 
     }
@@ -273,12 +284,7 @@ class ApiController extends Controller
                         'Hari Ini' => $toDay,
                         'Semua' => $allDay
                         ],
-            'Total' =>[
-                        'Jumlah Reaktif' => $reaktif,
-                        'Jumlah Positif' => $positif,
-                        'Jumlah Sembuh' => $sembuh,
-                        'Jumlah Meninggal' => $meninggal,
-                    ],
+            'message' => 'berhasil'
         ]);
 
     }
@@ -339,12 +345,7 @@ class ApiController extends Controller
                         'Hari Ini' => $toDay,
                         'Semua' => $allDay
                         ],
-            'Total' =>[
-                        'Jumlah Reaktif' => $reaktif,
-                        'Jumlah Positif' => $positif,
-                        'Jumlah Sembuh' => $sembuh,
-                        'Jumlah Meninggal' => $meninggal,
-                    ],
+            'message' => 'berhasil'
         ]);
 
     }
@@ -438,16 +439,7 @@ class ApiController extends Controller
   
 
 
-      
 
-
-
-          // $this->data=[
-          //   'nama' => 'indonesia',
-          //   'positif' => $positif,
-          //   'sembuh' => $sembuh,
-          //   'meninggal' => $meninggal,
-          // ];
 
 
 

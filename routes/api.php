@@ -28,6 +28,7 @@ Route::delete('/posts/{id?}', [PostsController::class,'destroy']);
 
 // kawal corona
 
+
 Route::get('/provinsi',[ApiController::class, 'provinsi']);
 Route::get('/provinsi/{id}', [ApiController::class,'provinsishow']);
 
@@ -48,7 +49,7 @@ Route::get('/positif', [ApiController::class,'positif']);
 Route::get('/sembuh', [ApiController::class,'sembuh']);
 Route::get('/meninggal', [ApiController::class,'meninggal']);
 Route::get('/indonesia', [ApiController::class,'indonesia']);
-
+Route::get('/global',[ApiController::class, 'global']);
 
 
 
