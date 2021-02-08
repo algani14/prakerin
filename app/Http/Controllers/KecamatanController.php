@@ -82,3 +82,4 @@ class KecamatanController extends Controller
         return redirect()->route('kecamatan.index')->with(['error'=> 'Data berhasil di hapus!']);
     }
 }
+
