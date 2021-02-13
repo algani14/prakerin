@@ -1,199 +1,378 @@
-<!--
-=========================================================
-* Argon Dashboard - v1.2.0
-=========================================================
-* Product Page: https://www.creative-tim.com/product/argon-dashboard
-
-
-* Copyright  Creative Tim (http://www.creative-tim.com)
-* Coded by www.creative-tim.com
-
-
-
-=========================================================
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
-<html>
+<html lang="zxx">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
-  <meta name="author" content="Creative Tim">
-  <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
-  <!-- Favicon -->
-  <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
-  <!-- Fonts -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700">
-  <!-- Icons -->
-  <link rel="stylesheet" href="assets/vendor/nucleo/css/nucleo.css" type="text/css">
-  <link rel="stylesheet" href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" type="text/css">
-  <!-- Page plugins -->
-  <!-- Argon CSS -->
-  <link rel="stylesheet" href="assets/css/argon.css?v=1.2.0" type="text/css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="description" content="Orbitor,business,company,agency,modern,bootstrap4,tech,software">
+    <meta name="author" content="themefisher.com">
+
+    <title>Kawal Corona</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico" />
+
+    <!-- bootstrap.min css -->
+    <link rel="stylesheet" href="plugins/bootstrap/css/bootstrap.min.css">
+    <!-- Icon Font Css -->
+    <link rel="stylesheet" href="plugins/icofont/icofont.min.css">
+    <!-- Slick Slider  CSS -->
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
 </head>
 
-<body>
-  <!-- Sidenav -->
+<body id="top">
 
-  <!-- Main content -->
-  <div class="main-content" id="panel">
-  
-    <div class="header bg-primary pb-6">
-      <div class="container-fluid">
-        <div class="header-body">
-          <div class="row align-items-center py-4">
-            <div class="col-lg-6 col-7">
-              <nav aria-label="breadcrumb" class="d-none d-md-inline-block ml-md-4">
-                <ol class="breadcrumb breadcrumb-links breadcrumb-dark">
-                  <li class="breadcrumb-item"><a href="#"><i class="fas fa-home"></i></a></li>
-                  <li class="breadcrumb-item"><a href="#">Dashboards</a></li>
-                  <li class="breadcrumb-item active" aria-current="page">Default</li>
-                </ol>
-              </nav>
+    <header>
+        <nav class="navbar navbar-expand-lg navigation" id="navbar">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/logo.png" alt="" class="img-fluid">
+                </a>
+
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain"
+                    aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="icofont-navigation-menu"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarmain">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="frontend/kontak">
+
+                                <span class="nav-link-text">Kontak</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
-            
-          </div>
-          <div class = 'jumbotron'>
-            <div class = 'container'>
+        </nav>
+    </header>
+
+
+
+
+    <!-- Slider Start -->
+
+    <div class="jumbotron">
+        <div class="container">
+            <br>
+            <h1 class="display-3 text-center">KAWAL CORONA</h1>
+            <p class="lead m-0 text-center">Coronavirus Global & Indonesia Live Data</p>
+        </div>
+        <br>
+        <br>
+        <section class="cta-section ">
+            <div class="container">
+                <div class="cta position-relative">
+                    <div class="row">
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                            <div class="counter-stat">
+                                <i class="icofont-doctor"></i>
+                                <span class="h3">{{ $positif }}</span>
+                                <p>Total Positif Di Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                            <div class="counter-stat">
+                                <i class="icofont-flag"></i>
+                                <span class="h3">{{ $sembuh }}</span>
+                                <p>Total Sembuh Di Indonesia</p>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                            <div class="counter-stat">
+                                <i class="icofont-badge"></i>
+                                <span class="h3">{{ $meninggal }}</span>
+                                <p>Total meninggal DI Indonesia</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                            <div class="counter-stat">
+                                <i class="icofont-globe"></i>
+                                <span class="h3">
+                                    <?php echo $posglobal['value']; ?>
+                                </span>
+                                <p>Total Positif Di Dunia</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col text-center">
+                    <h6>
+                        <p>Update terakhir : {{ $tanggal }}</p>
+                    </h6>
+                </div>
                 <br>
-                <h1 class='display-3 text-center'>KAWAL CORONA</h1>
-                <h4 class="='lead m-0 text-center">Coronavirus Global & Indonesia Live Data</h4>
+                <br>
             </div>
-        </div>
-          <!-- Card stats -->
-          <div class="row">
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                    <div class="ml-auto"> <img src="../img2/emoji-LWx.png" width="50" height="50" alt="Positif"> </div>
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Positif</h5>
-                      <span class="h2 font-weight-bold mb-0">350,897</span>
-                    </div>
-                    <div class="col-auto">
-                    </div>
-                  </div>     
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                    <div class="ml-auto"> <img src="../img2/happy-ipM.png" width="50" height="50" alt="Sembuh"> </div>
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Sembuh</h5>
-                      <span class="h2 font-weight-bold mb-0">2,356</span>
-                    </div>
-                    <div class="col-auto">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                    <div class="ml-auto"> <img src="../img2/sad-u6e.png" width="50" height="50" alt="Meninggal"> </div>
-                      <h5 class="card-title text-uppercase text-muted mb-0">Total Meninggal</h5>
-                      <span class="h2 font-weight-bold mb-0">924</span>
-                    </div>
-                    <div class="col-auto">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-xl-3 col-md-6">
-              <div class="card card-stats">
-                <!-- Card body -->
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col">
-                    <div class="ml-auto"> <img src="../img2/indonesia-PZq.png" width="50" height="50" alt="Indonesia"> </div>
-                      <h5 class="card-title text-uppercase text-muted mb-0">Indonesia</h5>
-                      <span class="h2 font-weight-bold mb-0">49,65%</span>
-                    </div>
-                    <div class="col-auto">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-     
-						<div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
-							<div class="card">
-									<div class="card-header ">
-										<h3 class="card-title">Data Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h3>
-									</div>
-            <div class="row">
-              <div class="col-xl-8">
+        </section>
+
+        <br>
+        <br>
+        <div class="row row-cards">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
                 <div class="card">
-                  <div class="card-header border-0">
-                  <div class="row align-items-center">
-									<div class="card-body">
-                  <div class="table-responsive">
-              <!-- Projects table -->
-              <table class="table align-items-center table-flush">
-              <thead class="thead-light">
-                    <tr>
-                      <th>No</th>
-                      <th>Kode Provinsi</th>
-                      <th>Provinsi</th>
-                      <th>Positif</th>
-                      <th>Sembuh</th>
-                      <th>Meninggal</th>
-                    </thead>
-                    </tr>
-                    <tbody>
-                        @php
-                            $no = 1;
-                        @endphp
-                        @foreach ($provinsi as $item)
-                            <tr>
-                                <td>{{$no++}}</td>
-                                <td> {{$item->kode_provinsi}} </td>
-                                <td> {{$item->nama_provinsi}} </td>
-                                <td> {{$item->positif}} </td>
-                                <td> {{$item->sembuh}} </td>
-                                <td> {{$item->meninggal}} </td>
-                            </tr>
-                            @endforeach
-                  </tbody>
-                </table>
-              </section>
-             </div>
-            <div>        
-      </div>
-    @Include ('layouts.components.footer')
-  </div>
-  
-    
-   
-  <!-- Argon Scripts -->
-  
-  <!-- Core -->
-  <script src="assets/vendor/jquery/dist/jquery.min.js"></script>
-  <script src="assets/vendor/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/js-cookie/js.cookie.js"></script>
-  <script src="assets/vendor/jquery.scrollbar/jquery.scrollbar.min.js"></script>
-  <script src="assets/vendor/jquery-scroll-lock/dist/jquery-scrollLock.min.js"></script>
-  <!-- Optional JS -->
-  <script src="assets/vendor/chart.js/dist/Chart.min.js"></script>
-  <script src="assets/vendor/chart.js/dist/Chart.extension.js"></script>
-  <!-- Argon JS -->
-  <script src="assets/js/argon.js?v=1.2.0"></script>
+                    <div class="card-header ">
+                        <h3 class="card-title">Data Kasus Coronavirus di Indonesia Berdasarkan Provinsi</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive ">
+                            <table class="table table-bordered table-hover mb-0 text-nowrap css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <center>No</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Provinsi</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Positif</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Sembuh</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Meninggal</center>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+
+                                    @foreach ($tampil as $tmp)
+                                        <tr>
+                                            <th scope="row">
+                                                <center>{{ $no++ }}</center>
+                                            </th>
+                                            <td>
+                                                <center>{{ $tmp->nama_provinsi }}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{ number_format($tmp->Positif) }}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{ number_format($tmp->Sembuh) }}</center>
+                                            </td>
+                                            <td>
+                                                <center>{{ number_format($tmp->Meninggal) }}</center>
+                                            </td>
+                                        </tr>
+
+                                </tbody>
+                                @endforeach
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <div class="row row-cards">
+            <div class="col-sm-12 col-md-12 col-lg-12 col-xl-14">
+                <div class="card">
+                    <div class="card-header ">
+                        <h3 class="card-title">Kasus Coronavirus Global</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive ">
+                            <table class="table table-bordered table-hover mb-0 text-nowrap css-serial">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">
+                                            <center>No</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Negara</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Positif</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Sembuh</center>
+                                        </th>
+                                        <th scope="col">
+                                            <center>Jumlah Meninggal</center>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @foreach ($dunia as $data)
+                                        <tr>
+                                            <td> <?php echo $no++; ?></td>
+                                            <td> <?php echo $data['attributes']['Country_Region']; ?>
+                                            </td>
+                                            <td> <?php echo
+                                                number_format($data['attributes']['Confirmed']); ?>
+                                            </td>
+                                            <td><?php echo
+                                                number_format($data['attributes']['Recovered']); ?>
+                                            </td>
+                                            <td><?php echo number_format($data['attributes']['Deaths']);
+                                                ?>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- footer Start -->
+    <footer class="footer section gray-bg">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mr-auto col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <div class="logo mb-4">
+                            <img src="images/logo.png" alt="" class="img-fluid">
+                        </div>
+                        <p>Tempora dolorem voluptatum nam vero assumenda voluptate, facilis ad eos
+                            obcaecati
+                            tenetur
+                            veritatis eveniet distinctio possimus.</p>
+
+                        <ul class="list-inline footer-socials mt-4">
+                            <li class="list-inline-item"><a href="https://www.facebook.com/themefisher"><i
+                                        class="icofont-facebook"></i></a></li>
+                            <li class="list-inline-item"><a href="https://twitter.com/themefisher"><i
+                                        class="icofont-twitter"></i></a></li>
+                            <li class="list-inline-item"><a href="https://www.pinterest.com/themefisher/"><i
+                                        class="icofont-linkedin"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">Department</h4>
+                        <div class="divider mb-4"></div>
+
+                        <ul class="list-unstyled footer-menu lh-35">
+                            <li><a href="#">Surgery </a></li>
+                            <li><a href="#">Wome's Health</a></li>
+                            <li><a href="#">Radiology</a></li>
+                            <li><a href="#">Cardioc</a></li>
+                            <li><a href="#">Medicine</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-2 col-md-6 col-sm-6">
+                    <div class="widget mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">Support</h4>
+                        <div class="divider mb-4"></div>
+
+                        <ul class="list-unstyled footer-menu lh-35">
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Company Support </a></li>
+                            <li><a href="#">FAQuestions</a></li>
+                            <li><a href="#">Company Licence</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="widget widget-contact mb-5 mb-lg-0">
+                        <h4 class="text-capitalize mb-3">Get in Touch</h4>
+                        <div class="divider mb-4"></div>
+
+                        <div class="footer-contact-block mb-4">
+                            <div class="icon d-flex align-items-center">
+                                <i class="icofont-email mr-3"></i>
+                                <span class="h6 mb-0">Support Available for 24/7</span>
+                            </div>
+                            <h4 class="mt-2"><a href="tel:+23-345-67890">Support@email.com</a></h4>
+                        </div>
+
+                        <div class="footer-contact-block">
+                            <div class="icon d-flex align-items-center">
+                                <i class="icofont-support mr-3"></i>
+                                <span class="h6 mb-0">Mon to Fri : 08:30 - 18:00</span>
+                            </div>
+                            <h4 class="mt-2"><a href="tel:+23-345-67890">+23-456-6588</a></h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-btm py-4 mt-5">
+                <div class="row align-items-center justify-content-between">
+                    <div class="col-lg-6">
+                        <div class="copyright">
+                            &copy; Copyright Reserved to <span class="text-color">Novena</span> by <a
+                                href="https://themefisher.com/" target="_blank">Themefisher</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="subscribe-form text-lg-right mt-5 mt-lg-0">
+                            <form action="#" class="subscribe">
+                                <input type="text" class="form-control" placeholder="Your Email address">
+                                <a href="#" class="btn btn-main-2 btn-round-full">Subscribe</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-4">
+                        <a class="backtop js-scroll-trigger" href="#top">
+                            <i class="icofont-long-arrow-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+
+
+
+    <!-- 
+    Essential Scripts
+    =====================================-->
+
+
+    <!-- Main jQuery -->
+    <script src="plugins/jquery/jquery.js"></script>
+    <!-- Bootstrap 4.3.2 -->
+    <script src="plugins/bootstrap/js/popper.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
+    <script src="plugins/counterup/jquery.easing.js"></script>
+    <!-- Slick Slider -->
+    <script src="plugins/slick-carousel/slick/slick.min.js"></script>
+    <!-- Counterup -->
+    <script src="plugins/counterup/jquery.waypoints.min.js"></script>
+
+    <script src="plugins/shuffle/shuffle.min.js"></script>
+    <script src="plugins/counterup/jquery.counterup.min.js"></script>
+    <!-- Google Map -->
+    <script src="plugins/google-map/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkeLMlsiwzp6b3Gnaxd86lvakimwGA6UA&callback=initMap">
+    </script>
+
+    <script src="js2/script.js"></script>
+    <script src="js2/contact.js"></script>
+
 </body>
 
 </html>

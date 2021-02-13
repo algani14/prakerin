@@ -43,3 +43,4 @@ Route::resource('kasus',KasusController::class);
 
 });
 Route::resource('/',FrontendController::class);
+
